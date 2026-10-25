@@ -9,7 +9,8 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { 
             getAuth, 
-            signInWithPopup, 
+            signInWithRedirect, 
+            getRedirectResult,
             GoogleAuthProvider, 
             createUserWithEmailAndPassword,
             signInWithEmailAndPassword,
@@ -30,7 +31,19 @@
         const auth = getAuth(app);
         const googleProvider = new GoogleAuthProvider();
 
-        // Controlar visualização entre Tela de Login e Dashboard Principal
+        // Processar retorno do redirecionamento do Google (Essencial para Mobile)
+        getRedirectResult(auth)
+          .then((result) => {
+             if (result) {
+                 console.log("Login com Google bem sucedido:", result.user);
+             }
+          })
+          .catch((error) => {
+             console.error("Erro no retorno do Google:", error);
+             alert("Erro na autenticação do Google (" + error.code + "): " + error.message);
+          });
+
+        // Monitorar estado do usuário para exibir Dashboard ou Login
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 document.getElementById('login-screen').style.display = 'none';
@@ -42,11 +55,9 @@
             }
         });
 
-        // 1. Função de Login com Google
+        // 1. Função de Login com Google via Redirecionamento (Funciona no Celular)
         window.fazerLoginGoogle = function() {
-            signInWithPopup(auth, googleProvider).catch((error) => {
-                alert("Erro ao entrar com Google: " + error.message);
-            });
+            signInWithRedirect(auth, googleProvider);
         };
 
         // 2. Função de Criar Conta com E-mail e Senha
@@ -84,7 +95,7 @@
         input { width: 100%; padding: 12px; margin-bottom: 12px; background: #0b0f19; border: 1px solid #334155; color: #ffffff; border-radius: 8px; font-size: 14px; outline: none; }
         .btn-submit { width: 100%; padding: 12px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; }
 
-        /* Dashboard Principal */
+        /* Dashboard Principal com Gráficos e Notícias */
         #dashboard-screen { display: none; padding: 20px; max-width: 1200px; margin: 0 auto; }
         header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1f2937; padding-bottom: 15px; margin-bottom: 20px; }
         header h1 { color: #38bdf8; font-size: 20px; }
