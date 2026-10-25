@@ -1,0 +1,9 @@
+{
+  "name": "plataforma-imprensa",
+  "version": "1.0.0",
+  "description": "Império Real - Rede Global de Notícias Verificadas",
+  "scripts": {
+    "dev": "npx serve",
+    "build": "echo 'Build completo'"
+  }
+}
