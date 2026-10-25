@@ -1,133 +1,532 @@
 <!DOCTYPE html>
- <html lang="pt-BR">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Parceiros | IMPÉRIO REAL</title>
-     <style>
-         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-         body { background: linear-gradient(135deg, #0a0a12 0%, #1a1a2e 50%, #16213e 100%); min-height: 100vh; color: #fff; }
-         .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-         
-         header { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(184, 134, 11, 0.2); margin-bottom: 50px; flex-wrap: wrap; }
-         .logo { display: flex; align-items: center; gap: 12px; }
-         .logo-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #b8860b, #daa520); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; color: #000; }
-         .logo-text h1 { font-size: 22px; color: #b8860b; letter-spacing: 2px; }
-         .logo-text p { font-size: 12px; color: #888; letter-spacing: 1px; }
-         
-         nav a { color: #ccc; text-decoration: none; margin-left: 25px; font-size: 15px; transition: color 0.3s; }
-         nav a:hover, nav a.active { color: #b8860b; }
-         .btn { padding: 10px 25px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
-         .btn-gold { background: linear-gradient(135deg, #b8860b, #daa520); color: #000; border: none; }
-         
-         h2 { font-size: 36px; color: #b8860b; text-align: center; margin-bottom: 40px; }
-         .intro { text-align: center; color: #aaa; max-width: 700px; margin: 0 auto 50px; font-size: 18px; line-height: 1.6; }
-         
-         .benefits { margin-bottom: 60px; }
-         .benefit-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(184,134,11,0.15); border-radius: 10px; padding: 25px; margin-bottom: 20px; }
-         .benefit-item h3 { color: #daa520; margin-bottom: 10px; font-size: 18px; }
-         .benefit-item p { color: #999; line-height: 1.6; }
-         
-         .how-it-works { background: rgba(184,134,11,0.03); border: 1px solid rgba(184,134,11,0.15); border-radius: 12px; padding: 40px; margin-bottom: 60px; }
-         .how-it-works h3 { color: #b8860b; text-align: center; margin-bottom: 30px; font-size: 24px; }
-         .steps { display: flex; flex-direction: column; gap: 20px; }
-         .step { display: flex; gap: 20px; align-items: flex-start; }
-         .step-number { width: 40px; height: 40px; background: #b8860b; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; flex-shrink: 0; }
-         .step-content h4 { color: #fff; margin-bottom: 5px; }
-         .step-content p { color: #888; }
-         
-         .cta-box { background: linear-gradient(135deg, rgba(184,134,11,0.1), rgba(218,165,32,0.05)); border: 1px solid #b8860b; border-radius: 12px; padding: 40px; text-align: center; margin-bottom: 60px; }
-         .cta-box h3 { color: #b8860b; margin-bottom: 15px; font-size: 24px; }
-         .cta-box p { color: #aaa; margin-bottom: 25px; }
-         
-         footer { text-align: center; padding: 30px 0; border-top: 1px solid rgba(184, 134, 11, 0.1); color: #666; font-size: 14px; }
-         
-         @media(max-width: 768px) {
-             nav a { margin-left: 10px; font-size: 13px; }
-             h2 { font-size: 26px; }
-             .how-it-works, .cta-box { padding: 25px; }
-         }
-     </style>
- </head>
- <body>
-     <div class="container">
-         <header>
-             <div class="logo">
-                 <div class="logo-icon">👑</div>
-                 <div class="logo-text">
-                     <h1>IMPÉRIO REAL</h1>
-                     <p>Rede Global de Notícias Verificadas</p>
-                 </div>
-             </div>
-             <nav>
-                 <a href="index.html">Início</a>
-                 <a href="parceiros.html" class="active">Parceiros</a>
-                 <a href="pagamento.html">Pagamento</a>
-                 <a href="contato.html">Contato</a>
-             </nav>
-         </header>
-         <h2>🤝 Seja um Veículo Parceiro</h2>
-         <p class="intro">Junte-se a uma rede global de comunicação comprometida com a verdade, a credibilidade e a informação verificada.</p>
-         <section class="benefits">
-             <div class="benefit-item">
-                 <h3>✅ Selo de Verificação Império Real</h3>
-                 <p>Exiba em seu veículo o reconhecimento de que seu conteúdo passa pelos mais rigorosos critérios de verificação e qualidade.</p>
-             </div>
-             <div class="benefit-item">
-                 <h3>✅ Remuneração Garantida por Conteúdo</h3>
-                 <p>Seus materiais validados geram retorno financeiro. Valores definidos de forma transparente por notícia publicada.</p>
-             </div>
-             <div class="benefit-item">
-                 <h3>✅ Proteção contra Desinformação</h3>
-                 <p>Nossa Inteligência Artificial valida cada conteúdo antes da publicação, protegendo sua audiência e sua reputação.</p>
-             </div>
-             <div class="benefit-item">
-                 <h3>✅ Exposição Internacional</h3>
-                 <p>Seu veículo passa a fazer parte de uma rede global, ampliando seu alcance e credibilidade além das fronteiras.</p>
-             </div>
-         </section>
-         <section class="how-it-works">
-             <h3>📋 Como Funciona</h3>
-             <div class="steps">
-                 <div class="step">
-                     <div class="step-number">1</div>
-                     <div class="step-content">
-                         <h4>Envie sua Proposta</h4>
-                         <p>Entre em contato conosco apresentando seu veículo de comunicação.</p>
-                     </div>
-                 </div>
-                 <div class="step">
-                     <div class="step-number">2</div>
-                     <div class="step-content">
-                         <h4>Análise e Contrato</h4>
-                         <p>Avaliamos sua solicitação e enviamos o contrato de parceria.</p>
-                     </div>
-                 </div>
-                 <div class="step">
-                     <div class="step-number">3</div>
-                     <div class="step-content">
-                         <h4>Validação do Conteúdo</h4>
-                         <p>Seus materiais passam pelo sistema de verificação da plataforma.</p>
-                     </div>
-                 </div>
-                 <div class="step">
-                     <div class="step-number">4</div>
-                     <div class="step-content">
-                         <h4>Publicação e Remuneração</h4>
-                         <p>Conteúdo aprovado é publicado e você recebe conforme os valores estabelecidos.</p>
-                     </div>
-                 </div>
-             </div>
-         </section>
-         <section class="cta-box">
-             <h3>Pronto para fazer parte?</h3>
-             <p>Entre em contato e vamos conversar sobre uma parceria de sucesso.</p>
-             <a href="contato.html" class="btn btn-gold">Enviar Proposta</a>
-         </section>
-         <footer>
-             <p>© 2025 Império Real — Rede Global de Notícias Verificadas. Todos os direitos reservados.</p>
-             <p>Contato: realimperio57@gmail.com | +55 (43) 98801-5392</p>
-         </footer>
-     </div>
- </body>
- </html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPÉRIO REAL | Plataforma de Inteligência Jornalística</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --gold: #b8860b;
+            --gold-light: #daa520;
+            --bg-dark: #0a0a12;
+            --bg-card: rgba(255,255,255,0.03);
+            --border: rgba(184,134,11,0.15);
+            --text: #ddd;
+            --text-muted: #888;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background: linear-gradient(135deg, #0a0a12 0%, #1a1a2e 50%, #16213e 100%); min-height: 100vh; color: var(--text); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+        
+        header { padding: 16px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); flex-wrap: wrap; position: sticky; top: 0; background: rgba(10,10,18,0.95); z-index: 100; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold; color: #000; }
+        .logo-text h1 { font-size: 18px; color: var(--gold); letter-spacing: 1px; }
+        .logo-text p { font-size: 11px; color: var(--text-muted); }
+        
+        nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        nav a, nav button { color: var(--text-muted); text-decoration: none; padding: 8px 12px; font-size: 14px; background: transparent; border: none; cursor: pointer; border-radius: 6px; transition: all 0.2s; }
+        nav a:hover, nav a.active, nav button:hover { color: var(--gold); background: rgba(184,134,11,0.08); }
+        .btn { padding: 8px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; border: none; transition: all 0.3s; text-decoration: none; display: inline-block; font-size: 14px; }
+        .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #000; }
+        .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(184,134,11,0.3); }
+        .btn-outline { border: 1px solid var(--gold); color: var(--gold); background: transparent; }
+        .btn-outline:hover { background: var(--gold); color: #000; }
+        
+        .timer-box { text-align: center; padding: 12px; background: rgba(184,134,11,0.05); border: 1px solid var(--border); border-radius: 8px; margin: 16px 0; }
+        .timer-label { font-size: 13px; color: var(--text-muted); }
+        .timer-value { font-size: 24px; font-weight: bold; color: var(--gold); font-family: monospace; }
+        
+        .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+        .tab-btn { padding: 10px 18px; background: transparent; border: none; color: var(--text-muted); cursor: pointer; border-radius: 6px 6px 0 0; font-size: 14px; }
+        .tab-btn.active { color: var(--gold); border-bottom: 2px solid var(--gold); background: rgba(184,134,11,0.05); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        h2 { font-size: 28px; color: var(--gold); margin: 24px 0 16px; }
+        h3 { font-size: 18px; color: var(--gold-light); margin: 20px 0 12px; }
+        
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+        
+        .search-bar { width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 14px; margin-bottom: 16px; }
+        .search-bar:focus { outline: none; border-color: var(--gold); }
+        
+        .table-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid rgba(184,134,11,0.08); vertical-align: middle; }
+        th { background: rgba(184,134,11,0.05); color: var(--gold); font-weight: 600; cursor: pointer; user-select: none; white-space: nowrap; }
+        th:hover { background: rgba(184,134,11,0.1); }
+        tr:hover { background: rgba(184,134,11,0.03); }
+        .rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #000; font-weight: bold; font-size: 13px; }
+        .rank-gold { background: linear-gradient(135deg, #ffd700, #ffed4e); }
+        .rank-silver { background: linear-gradient(135deg, #c0c0c0, #e0e0e0); color: #333; }
+        .rank-bronze { background: linear-gradient(135deg, #cd7f32, #e8a860); color: #222; }
+        
+        .chart-container { position: relative; height: 320px; margin: 20px 0; }
+        
+        .sim-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+        .sim-form select, .sim-form input, .sim-form button { padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); color: #fff; font-size: 14px; }
+        .sim-form button { background: var(--gold); color: #000; font-weight: 600; border: none; cursor: pointer; }
+        .sim-form button:hover { background: var(--gold-light); }
+        
+        .log-box { background: rgba(0,0,0,0.25); border-left: 2px solid var(--gold); padding: 14px; border-radius: 0 6px 6px 0; margin-top: 16px; max-height: 180px; overflow-y: auto; font-family: monospace; font-size: 13px; color: #aaa; }
+        .log-entry { margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .log-entry.success { color: #4cd137; }
+        
+        .contacts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+        .contact-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+        .contact-card h4 { color: var(--gold-light); font-size: 15px; margin-bottom: 6px; }
+        .contact-card p { font-size: 13px; color: #aaa; word-break: break-all; }
+        
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); display: none; align-items: center; justify-content: center; z-index: 200; padding: 20px; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: var(--bg-dark); border: 1px solid var(--gold); border-radius: 12px; padding: 30px; max-width: 400px; width: 100%; }
+        .modal h3 { text-align: center; margin-bottom: 24px; }
+        .modal input { width: 100%; padding: 12px; margin-bottom: 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; color: #fff; font-size: 14px; }
+        .modal button { width: 100%; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer; border: none; font-size: 15px; }
+        .modal .close-btn { background: transparent; color: var(--text-muted); margin-top: 10px; }
+        .modal .close-btn:hover { color: #fff; }
+        .modal .toggle-text { text-align: center; margin-top: 16px; font-size: 14px; color: var(--text-muted); }
+        .modal .toggle-text span { color: var(--gold); cursor: pointer; }
+        
+        footer { text-align: center; padding: 30px 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; margin-top: 60px; }
+        
+        .total-box { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
+        .total-card { background: rgba(184,134,11,0.05); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; flex: 1; min-width: 160px; text-align: center; }
+        .total-card .val { font-size: 22px; font-weight: bold; color: var(--gold); }
+        .total-card .lab { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        @media(max-width: 768px) {
+            h2 { font-size: 22px; }
+            .chart-container { height: 240px; }
+            nav a { padding: 6px 8px; font-size: 13px; }
+            th, td { padding: 10px 6px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <a href="#" class="logo" onclick="showTab('home')">
+            <div class="logo-icon">👑</div>
+            <div class="logo-text">
+                <h1>IMPÉRIO REAL</h1>
+                <p>Inteligência Jornalística</p>
+            </div>
+        </a>
+        <nav>
+            <a href="#" class="active" onclick="showTab('home'); return false;">Início</a>
+            <a href="#" onclick="showTab('ranking'); return false;">Ranking</a>
+            <a href="#" onclick="showTab('simulacao'); return false;">Simulação</a>
+            <a href="#" onclick="showTab('contatos'); return false;">Contatos</a>
+            <button onclick="openModal('loginModal')">Entrar</button>
+            <button class="btn btn-gold" style="padding:6px 14px; font-size:13px;" onclick="openModal('registerModal')">Criar Conta</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- ⏱️ CONTADOR DE 2 MINUTOS -->
+        <div class="timer-box">
+            <div class="timer-label">⏱️ Ciclo de Atualização do Sistema</div>
+            <div class="timer-value" id="mainTimer">02:00</div>
+        </div>
+
+        <!-- 🏠 ABA INÍCIO -->
+        <div id="tab-home" class="tab-content active">
+            <h2>Bem-vindo à Plataforma de Inteligência Jornalística</h2>
+            <p style="color:var(--text-muted); max-width:700px; line-height:1.7; margin-bottom:30px;">
+                Sistema completo de classificação, pontuação e acompanhamento de veículos de comunicação. 
+                Acompanhe o desempenho, a agilidade e o impacto das notícias em tempo real.
+            </p>
+
+            <div class="total-box">
+                <div class="total-card">
+                    <div class="val" id="totalPoints">0</div>
+                    <div class="lab">Pontuação Total</div>
+                </div>
+                <div class="total-card">
+                    <div class="val" id="totalProfit">R$ 0,00</div>
+                    <div class="lab">Lucro Gerado</div>
+                </div>
+                <div class="total-card">
+                    <div class="val" id="totalNews">0</div>
+                    <div class="lab">Notícias Registradas</div>
+                </div>
+                <div class="total-card">
+                    <div class="val">20</div>
+                    <div class="lab">Veículos Ativos</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📊 Desempenho Geral</h3>
+                <div class="chart-container">
+                    <canvas id="mainChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 📈 ABA RANKING -->
+        <div id="tab-ranking" class="tab-content">
+            <h2>🏆 Ranking de Veículos de Imprensa</h2>
+            
+            <input type="text" class="search-bar" id="searchInput" placeholder="🔍 Buscar veículo...">
+            
+            <div class="table-wrapper">
+                <table id="rankingTable">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable('rank')">#</th>
+                            <th onclick="sortTable('name')">Veículo</th>
+                            <th onclick="sortTable('news')">📰 Notícias</th>
+                            <th onclick="sortTable('scoops')">🔥 Furos</th>
+                            <th onclick="sortTable('agility')">⚡ Agilidade</th>
+                            <th onclick="sortTable('points')">⭐ Pontos</th>
+                            <th onclick="sortTable('profit')">💰 Lucro Gerado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rankingBody">
+                        <!-- Preenchido por JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 🎮 ABA SIMULAÇÃO -->
+        <div id="tab-simulacao" class="tab-content">
+            <h2>🎮 Simulador de Furo Jornalístico</h2>
+            <p style="color:var(--text-muted); margin-bottom:20px;">Selecione um veículo e adicione uma notícia ou furo. Veja a pontuação e o lucro serem atualizados instantaneamente no ranking e no gráfico.</p>
+            
+            <div class="card sim-form">
+                <div>
+                    <label style="display:block; margin-bottom:6px; font-size:14px; color:var(--gold-light);">Veículo de Imprensa</label>
+                    <select id="simVehicle"></select>
+                </div>
+                <div>
+                    <label style="display:block; margin-bottom:6px; font-size:14px; color:var(--gold-light);">Tipo de Notícia</label>
+                    <select id="simType">
+                        <option value="normal">Notícia Padrão (+10 pts / R$ 50,00)</option>
+                        <option value="scoop">Furo Jornalístico (+50 pts / R$ 350,00)</option>
+                        <option value="major">Grande Reportagem (+100 pts / R$ 700,00)</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display:block; margin-bottom:6px; font-size:14px; color:var(--gold-light);">Agilidade (1-10)</label>
+                    <input type="number" id="simAgility" min="1" max="10" value="8">
+                </div>
+                <div style="display:flex; align-items:flex-end;">
+                    <button onclick="simulateNews()" style="width:100%;">🚀 Registrar Notícia</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>📋 Histórico de Simulação</h3>
+                <div class="log-box" id="simLog">
+                    <div class="log-entry">Sistema inicializado — pronto para registrar notícias.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 📬 ABA CONTATOS -->
+        <div id="tab-contatos" class="tab-content">
+            <h2>📬 Contato com Veículos de Imprensa</h2>
+            <p style="color:var(--text-muted); margin-bottom:24px;">Endereços de e-mail corretos para contato com os principais veículos de comunicação.</p>
+            
+            <div class="contacts-grid" id="contactsGrid">
+                <!-- Preenchido por JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- 🔐 MODAL DE LOGIN -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal">
+            <h3>👑 Entrar na Plataforma</h3>
+            <input type="email" placeholder="Seu e-mail">
+            <input type="password" placeholder="Sua senha">
+            <button class="btn btn-gold">Entrar</button>
+            <div class="toggle-text">
+                Não tem conta? <span onclick="closeModal('loginModal'); openModal('registerModal');">Criar conta</span>
+            </div>
+            <button class="close-btn" onclick="closeModal('loginModal')">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- 📝 MODAL DE CADASTRO -->
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal">
+            <h3>📝 Criar Conta</h3>
+            <input type="text" placeholder="Nome completo">
+            <input type="email" placeholder="Seu e-mail">
+            <input type="password" placeholder="Criar senha">
+            <input type="password" placeholder="Confirmar senha">
+            <button class="btn btn-gold">Criar Conta</button>
+            <div class="toggle-text">
+                Já tem conta? <span onclick="closeModal('registerModal'); openModal('loginModal');">Entrar</span>
+            </div>
+            <button class="close-btn" onclick="closeModal('registerModal')">Cancelar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Império Real — Plataforma de Inteligência Jornalística. Todos os direitos reservados.</p>
+        <p>Contato: realimperio57@gmail.com | +55 (43) 98801-5392</p>
+    </footer>
+
+    <script>
+        // =====================================================
+        // DADOS DOS 20 VEÍCULOS
+        // =====================================================
+        const vehicles = [
+            { id:1, name:'G1 / Globo', email:'redacao@g1.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:2, name:'Folha de S.Paulo', email:'redacao@folha.uol.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:3, name:'CNN Brasil', email:'contato@cnnbrasil.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:4, name:'Reuters', email:'media.reuters.com/form', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:5, name:'BBC News', email:'haveyoursay@bbc.co.uk', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:6, name:'O Globo', email:'redacao@oglobo.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:7, name:'Estadão', email:'redacao@estadao.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:8, name:'Valor Econômico', email:'redacao@valor.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:9, name:'Jovem Pan', email:'contato@jovempan.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:10, name:'UOL', email:'contato@uol.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:11, name:'Revista Veja', email:'redacao@veja.abril.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:12, name:'Band News', email:'contato@band.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:13, name:'CBN', email:'contato@cbn.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:14, name:'Exame', email:'redacao@exame.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:15, name:'IstoÉ', email:'redacao@istoe.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:16, name:'Correio Braziliense', email:'redacao@correiobraziliense.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:17, name:'Zero Hora', email:'redacao@zerohora.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:18, name:'Metrópoles', email:'redacao@metropoles.com', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:19, name:'Poder360', email:'contato@poder360.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
+            { id:20, name:'O Estado de S.Paulo', email:'redacao@estadao.com.br', news:0, scoops:0, agility:0, points:0, profit:0 }
+        ];
+
+        let sortKey = 'points';
+        let sortDir = -1;
+        let totalNewsCount = 0;
+
+        // =====================================================
+        // CONTADOR DE 2 MINUTOS
+        // =====================================================
+        let timerSeconds = 120;
+        function updateTimer() {
+            const m = Math.floor(timerSeconds / 60);
+            const s = timerSeconds % 60;
+            document.getElementById('mainTimer').textContent = 
+                `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+            timerSeconds--;
+            if (timerSeconds < 0) timerSeconds = 120;
+        }
+        setInterval(updateTimer, 1000);
+
+        // =====================================================
+        // NAVEGAÇÃO ENTRE ABAS
+        // =====================================================
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('nav a').forEach(el => el.classList.remove('active'));
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            event.target.classList.add('active');
+            
+            if (tabName === 'ranking') renderTable();
+            if (tabName === 'contatos') renderContacts();
+            if (tabName === 'simulacao') updateVehicleSelect();
+            if (tabName === 'home') updateTotals();
+        }
+
+        // =====================================================
+        // MODAIS DE LOGIN/CADASTRO
+        // =====================================================
+        function openModal(id) {
+            document.getElementById(id).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', e => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // =====================================================
+        // RENDERIZAR TABELA DE RANKING
+        // =====================================================
+        function renderTable() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = vehicles.filter(v => v.name.toLowerCase().includes(search));
+            const sorted = [...filtered].sort((a,b) => {
+                if (sortKey === 'name') return sortDir * a.name.localeCompare(b.name);
+                return sortDir * (a[sortKey] - b[sortKey]);
+            });
+
+            const tbody = document.getElementById('rankingBody');
+            tbody.innerHTML = sorted.map((v, idx) => {
+                const rankPos = vehicles.indexOf(v) + 1;
+                let rankClass = '';
+                if (idx === 0) rankClass = 'rank-gold';
+                else if (idx === 1) rankClass = 'rank-silver';
+                else if (idx === 2) rankClass = 'rank-bronze';
+                
+                return `
+                    <tr>
+                        <td><span class="rank-badge ${rankClass}">${idx+1}</span></td>
+                        <td><strong>${v.name}</strong></td>
+                        <td>${v.news}</td>
+                        <td>${v.scoops}</td>
+                        <td>${v.agility.toFixed(1)}</td>
+                        <td><strong style="color:var(--gold-light)">${v.points}</strong></td>
+                        <td><strong style="color:#4cd137">R$ ${v.profit.toFixed(2).replace('.',',')}</strong></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function sortTable(key) {
+            if (sortKey === key) sortDir *= -1;
+            else { sortKey = key; sortDir = -1; }
+            renderTable();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', renderTable);
+
+        // =====================================================
+        // RENDERIZAR CONTATOS
+        // =====================================================
+        function renderContacts() {
+            document.getElementById('contactsGrid').innerHTML = vehicles.map(v => `
+                <div class="contact-card">
+                    <h4>${v.name}</h4>
+                    <p>📧 ${v.email}</p>
+                </div>
+            `).join('');
+        }
+
+        // =====================================================
+        // ATUALIZAR SELECT DE VEÍCULOS
+        // =====================================================
+        function updateVehicleSelect() {
+            const select = document.getElementById('simVehicle');
+            select.innerHTML = vehicles.map(v => `<option value="${v.id}">${v.name}</option>`).join('');
+        }
+
+        // =====================================================
+        // SIMULAÇÃO DE NOTÍCIA/FURO
+        // =====================================================
+        function simulateNews() {
+            const vid = parseInt(document.getElementById('simVehicle').value);
+            const type = document.getElementById('simType').value;
+            const agility = parseInt(document.getElementById('simAgility').value);
+            const v = vehicles.find(x => x.id === vid);
+            
+            let pointsGained = 0;
+            let profitGained = 0;
+            let label = '';
+
+            if (type === 'normal') {
+                pointsGained = 10 + Math.floor(agility / 2);
+                profitGained = 50.00;
+                v.news++;
+                label = 'Notícia Padrão';
+            } else if (type === 'scoop') {
+                pointsGained = 50 + agility * 3;
+                profitGained = 350.00;
+                v.scoops++;
+                v.news++;
+                label = 'FURO JORNALÍSTICO';
+            } else if (type === 'major') {
+                pointsGained = 100 + agility * 5;
+                profitGained = 700.00;
+                v.scoops++;
+                v.news++;
+                label = 'GRANDE REPORTAGEM';
+            }
+
+            v.points += pointsGained;
+            v.profit += profitGained;
+            v.agility = (v.agility * (v.news - 1) + agility) / v.news;
+            totalNewsCount++;
+
+            const time = new Date().toLocaleTimeString('pt-BR');
+            document.getElementById('simLog').innerHTML = `
+                <div class="log-entry success">[${time}] ✅ ${v.name} — ${label}<br>&nbsp;&nbsp;+${pointsGained} pts | +R$ ${profitGained.toFixed(2).replace('.',',')} | Agilidade: ${agility}/10</div>
+            ` + document.getElementById('simLog').innerHTML;
+
+            renderTable();
+            updateTotals();
+            updateChart();
+        }
+
+        // =====================================================
+        // ATUALIZAR TOTAIS
+        // =====================================================
+        function updateTotals() {
+            const totalPts = vehicles.reduce((s,v) => s + v.points, 0);
+            const totalPrf = vehicles.reduce((s,v) => s + v.profit, 0);
+            document.getElementById('totalPoints').textContent = totalPts.toLocaleString('pt-BR');
+            document.getElementById('totalProfit').textContent = `R$ ${totalPrf.toFixed(2).replace('.',',')}`;
+            document.getElementById('totalNews').textContent = totalNewsCount;
+        }
+
+        // =====================================================
+        // GRÁFICO
+        // =====================================================
+        let chart;
+        function initChart() {
+            const ctx = document.getElementById('mainChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: vehicles.map(v => v.name.length > 14 ? v.name.substring(0,14)+'...' : v.name),
+                    datasets: [
+                        { label: 'Pontuação', data: vehicles.map(v => v.points), backgroundColor: '#b8860b', borderRadius: 4 },
+                        { label: 'Lucro (R$)', data: vehicles.map(v => v.profit / 5), backgroundColor: '#4cd137', borderRadius: 4 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#888' } },
+                        x: { grid: { display: false }, ticks: { color: '#888', font: { size: 10 } } }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#ccc' } },
+                        tooltip: {
+                            callbacks: {
+                                label: function(ctx) {
+                                    if (ctx.dataset.label === 'Lucro (R$)') {
+                                        return `Lucro: R$ ${(ctx.raw * 5).toFixed(2).replace('.',',')}`;
+                                    }
+                                    return `${ctx.dataset.label}: ${ctx.raw}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateChart() {
+            chart.data.datasets[0].data = vehicles.map(v => v.points);
+            chart.data.datasets[1].data = vehicles.map(v => v.profit / 5);
+            chart.update();
+        }
+
+        // =====================================================
+        // INICIALIZAÇÃO
+        // =====================================================
+        window.onload = function() {
+            renderTable();
+            updateVehicleSelect();
+            initChart();
+            updateTotals();
+        };
+    </script>
+</body>
+</html>
