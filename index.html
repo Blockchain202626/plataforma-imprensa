@@ -49,3 +49,17 @@
       });
   };
 </script>
+<!-- Botão de Login do Google -->
+<button onclick="fazerLoginGoogle()" class="seu-botao-google-atual">
+  Entrar com o Google
+</button>
+<!-- Caixinha onde a pessoa digita o e-mail -->
+<input type="email" id="emailNovo" placeholder="Digite seu e-mail">
+
+<!-- Caixinha onde a pessoa digita a senha -->
+<input type="password" id="senhaNova" placeholder="Crie sua senha">
+
+<!-- Botão que puxa o que foi digitado nas caixas acima e cria a conta -->
+<button onclick="criarNovaConta(document.getElementById('emailNovo').value, document.getElementById('senhaNova').value)">
+  Criar Nova Conta
+</button>
