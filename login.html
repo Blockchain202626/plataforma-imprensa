@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso | IMPÉRIO REAL</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #0a0a12 0%, #1a1a2e 50%, #16213e 100%); min-height: 100vh; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+        
+        .logo { text-align: center; margin-bottom: 40px; }
+        .logo-icon { width: 70px; height: 70px; background: linear-gradient(135deg, #b8860b, #daa520); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: bold; color: #000; margin: 0 auto 15px; }
+        .logo h1 { font-size: 26px; color: #b8860b; letter-spacing: 2px; }
+        .logo p { font-size: 14px; color: #888; letter-spacing: 1px; }
+        
+        .login-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(184,134,11,0.2); border-radius: 12px; padding: 40px 30px; width: 100%; max-width: 420px; }
+        .login-box h2 { text-align: center; color: #b8860b; margin-bottom: 30px; font-size: 22px; }
+        
+        .status-box { background: rgba(184,134,11,0.05); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; padding: 20px; margin-bottom: 25px; text-align: center; }
+        .status-box .check { font-size: 40px; color: #4cd137; margin-bottom: 10px; }
+        .status-box h3 { color: #fff; font-size: 16px; margin-bottom: 5px; }
+        .status-box p { color: #888; font-size: 14px; }
+        
+        .feature-list { margin-top: 25px; padding-left: 20px; }
+        .feature-list li { color: #aaa; font-size: 14px; margin-bottom: 10px; list-style: none; position: relative; padding-left: 22px; line-height: 1.6; }
+        .feature-list li::before { content: "✅"; position: absolute; left: 0; }
+        
+        .btn { width: 100%; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; text-align: center; border: none; }
+        .btn-gold { background: linear-gradient(135deg, #b8860b, #daa520); color: #000; margin-top: 25px; }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(184, 134, 11, 0.4); }
+        .btn-back { background: transparent; border: 2px solid #555; color: #888; margin-top: 12px; }
+        .btn-back:hover { border-color: #b8860b; color: #b8860b; }
+        
+        .info-text { text-align: center; margin-top: 25px; color: #777; font-size: 13px; line-height: 1.6; }
+        .info-text a { color: #daa520; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <div class="logo-icon">👑</div>
+        <h1>IMPÉRIO REAL</h1>
+        <p>Rede Global de Notícias Verificadas</p>
+    </div>
+
+    <div class="login-box">
+        <h2>Bem-vindo!</h2>
+        
+        <div class="status-box">
+            <div class="check">✅</div>
+            <h3>Conectado com sucesso!</h3>
+            <p>Bem-vindo ao Império Real</p>
+        </div>
+
+        <ul class="feature-list">
+            <li>Painel de veículos parceiros — em breve</li>
+            <li>Verificador de conteúdo por IA — em breve</li>
+            <li>Contratos e propostas — em breve</li>
+            <li>Histórico de pagamentos — em breve</li>
+        </ul>
+
+        <p class="info-text">
+            A área de membros está em desenvolvimento.<br>
+            Por enquanto, utilize nosso <a href="contato.html">e-mail de contato</a> para negociações.
+        </p>
+
+        <a href="index.html" class="btn btn-gold">Ir para a Página Principal</a>
+        <a href="#" class="btn btn-back">Sair da Conta</a>
+    </div>
+</body>
+</html>
