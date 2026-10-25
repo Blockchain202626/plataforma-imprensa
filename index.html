@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Press Coin B2B - Bolsa de Valores da Informação</title>
     
-    <!-- Firebase SDK Modular -->
+    <!-- Firebase SDK v10 (Modular) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { 
@@ -26,26 +26,34 @@
             measurementId: "G-NLYSEY24FN"
         };
 
+        // Inicialização correta
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: 'select_account' });
 
-        // Expõe as funções globalmente para o HTML disparar sem erro
+        // Função de Login Direta e Segura
         window.fazerLoginGoogle = async function() {
             try {
+                // Forçamos o popup com tratamento limpo; em navegadores móveis modernos compatíveis com PWA/HTTPS, funciona perfeitamente se o domínio estiver autorizado.
                 const result = await signInWithPopup(auth, provider);
-                console.log("Login OK:", result.user);
+                console.log("Login efetuado:", result.user);
             } catch (error) {
-                console.error("Erro no Login:", error);
-                alert("Falha no login: " + error.message);
+                console.error("Erro detalhado no login:", error);
+                alert("Erro ao entrar com Google (" + error.code + "): " + error.message);
             }
         };
 
+        // Função de Logout
         window.fazerLogout = async function() {
-            await signOut(auth);
+            try {
+                await signOut(auth);
+            } catch (error) {
+                console.error("Erro ao sair:", error);
+            }
         };
 
-        // Alternância automática de tela baseada na sessão
+        // Monitor de Sessão Consolidado
         onAuthStateChanged(auth, (user) => {
             const loginCard = document.getElementById('login-card-container');
             const dashboardCard = document.getElementById('dashboard-container');
@@ -107,7 +115,7 @@
       <div class="badge-live">AO VIVO</div>
     </div>
 
-    <!-- CARTÃO DE LOGIN (Visível deslogado) -->
+    <!-- CARTÃO DE LOGIN -->
     <div id="login-card-container" class="card">
       <div class="card-title">🔒 ACESSO DA IMPRENSA</div>
       <button type="button" onclick="fazerLoginGoogle()" class="btn-google">
@@ -119,7 +127,7 @@
       </button>
     </div>
 
-    <!-- PAINEL DO UTILIZADOR LOGADO (Visível logado) -->
+    <!-- PAINEL DO UTILIZADOR LOGADO -->
     <div id="dashboard-container" class="card" style="display: none; border-color: #34d399;">
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <div>
@@ -153,7 +161,7 @@
       </div>
     </div>
 
-    <!-- BOT NOTURNO (PILOTO AUTOMÁTICO) -->
+    <!-- BOT NOTURNO -->
     <div class="card">
       <div class="bot-header">
         <div class="card-title" style="margin-bottom: 0;">🌙 BOT NOTURNO (PILOTO AUTOMÁTICO)</div>
