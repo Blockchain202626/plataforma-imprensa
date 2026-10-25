@@ -1,0 +1,12 @@
+{
+  "name": "plataforma-imprensa",
+  "version": "1.0.0",
+  "description": "Bolsa de Valores da Informação B2B",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
