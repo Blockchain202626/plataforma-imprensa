@@ -3,340 +3,618 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMPÉRIO REAL | Plataforma de Inteligência Jornalística</title>
+    <meta name="description" content="Império Real — Plataforma de Inteligência Jornalística e Ranking de Imprensas">
+    <title>IMPÉRIO REAL | Inteligência Jornalística</title>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    
     <style>
         :root {
             --gold: #b8860b;
-            --gold-light: #daa520;
-            --bg-dark: #0a0a12;
-            --bg-card: rgba(255,255,255,0.03);
-            --border: rgba(184,134,11,0.15);
-            --text: #ddd;
-            --text-muted: #888;
+            --gold-light: #f0c808;
+            --gold-dark: #8b6914;
+            --success: #00c853;
+            --google-blue: #4285f4;
+            --bg-main: #050508;
+            --bg-card: rgba(20, 20, 35, 0.7);
+            --border-gold: rgba(184, 134, 11, 0.35);
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --text-muted: #6b6b6b;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
-        body { background: linear-gradient(135deg, #0a0a12 0%, #1a1a2e 50%, #16213e 100%); min-height: 100vh; color: var(--text); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
-        
-        header { padding: 16px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); flex-wrap: wrap; position: sticky; top: 0; background: rgba(10,10,18,0.95); z-index: 100; }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: bold; color: #000; }
-        .logo-text h1 { font-size: 18px; color: var(--gold); letter-spacing: 1px; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body {
+            background: linear-gradient(135deg, #050508 0%, #101020 40%, #0f1a2e 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+        }
+        a { text-decoration: none; color: inherit; }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        header {
+            position: sticky; top: 0; z-index: 1000;
+            background: rgba(5, 5, 8, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-gold);
+            padding: 14px 0;
+        }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon {
+            width: 52px; height: 52px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 26px; font-weight: bold; color: #000;
+            box-shadow: 0 0 18px rgba(184, 134, 11, 0.35);
+        }
+        .logo-text h1 { font-size: 20px; color: var(--gold-light); letter-spacing: 1.5px; }
         .logo-text p { font-size: 11px; color: var(--text-muted); }
-        
+
         nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        nav a, nav button { color: var(--text-muted); text-decoration: none; padding: 8px 12px; font-size: 14px; background: transparent; border: none; cursor: pointer; border-radius: 6px; transition: all 0.2s; }
-        nav a:hover, nav a.active, nav button:hover { color: var(--gold); background: rgba(184,134,11,0.08); }
-        .btn { padding: 8px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; border: none; transition: all 0.3s; text-decoration: none; display: inline-block; font-size: 14px; }
-        .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #000; }
-        .btn-gold:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(184,134,11,0.3); }
-        .btn-outline { border: 1px solid var(--gold); color: var(--gold); background: transparent; }
-        .btn-outline:hover { background: var(--gold); color: #000; }
+        nav a, nav button {
+            padding: 10px 16px; font-size: 14px; border-radius: 8px; border: none;
+            background: transparent; color: var(--text-secondary); cursor: pointer;
+        }
+        nav a:hover, nav a.active, nav button:hover { color: var(--gold-light); background: rgba(184, 134, 11, 0.12); }
+        .btn {
+            padding: 10px 22px; border-radius: 8px; font-weight: 600; font-size: 14px;
+            cursor: pointer; border: none; transition: all 0.3s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            color: #000;
+        }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .btn-secondary { border: 1px solid var(--gold); color: var(--gold-light); background: transparent; }
+        .btn-secondary:hover { background: var(--gold); color: #000; }
+
+        .timer-bar {
+            background: linear-gradient(90deg, rgba(184,134,11,0.08), rgba(184,134,11,0.15), rgba(184,134,11,0.08));
+            border-bottom: 1px solid var(--border-gold);
+            padding: 10px 0; text-align: center;
+        }
+        .timer-text { font-size: 13px; color: var(--text-secondary); }
+        .timer-value { font-size: 22px; font-weight: 700; color: var(--gold-light); font-family: monospace; letter-spacing: 2px; }
+        .ai-status { display: inline-flex; align-items: center; gap: 8px; margin-left: 20px; font-size: 13px; color: var(--success); }
+        .ai-dot { width: 10px; height: 10px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+
+        .tabs-container { margin: 24px 0; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
+        .tab-btn {
+            padding: 12px 22px; background: transparent; border: none; color: var(--text-secondary);
+            cursor: pointer; border-radius: 8px 8px 0 0; font-size: 14px;
+        }
+        .tab-btn:hover { color: var(--gold-light); }
+        .tab-btn.active { color: var(--gold-light); border-bottom: 2px solid var(--gold); background: rgba(184,134,11,0.08); }
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+        h2 { font-size: 28px; color: var(--gold-light); margin-bottom: 8px; }
+        h3 { font-size: 18px; color: var(--gold-light); margin-bottom: 16px; }
+        .subtitle { color: var(--text-secondary); margin-bottom: 24px; font-size: 15px; }
         
-        .timer-box { text-align: center; padding: 12px; background: rgba(184,134,11,0.05); border: 1px solid var(--border); border-radius: 8px; margin: 16px 0; }
-        .timer-label { font-size: 13px; color: var(--text-muted); }
-        .timer-value { font-size: 24px; font-weight: bold; color: var(--gold); font-family: monospace; }
-        
-        .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-        .tab-btn { padding: 10px 18px; background: transparent; border: none; color: var(--text-muted); cursor: pointer; border-radius: 6px 6px 0 0; font-size: 14px; }
-        .tab-btn.active { color: var(--gold); border-bottom: 2px solid var(--gold); background: rgba(184,134,11,0.05); }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.3s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        
-        h2 { font-size: 28px; color: var(--gold); margin: 24px 0 16px; }
-        h3 { font-size: 18px; color: var(--gold-light); margin: 20px 0 12px; }
-        
-        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
-        
-        .search-bar { width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; color: #fff; font-size: 14px; margin-bottom: 16px; }
-        .search-bar:focus { outline: none; border-color: var(--gold); }
-        
-        .table-wrapper { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); }
+        .card {
+            background: var(--bg-card); border: 1px solid var(--border-gold);
+            border-radius: 14px; padding: 24px; margin-bottom: 24px;
+            backdrop-filter: blur(8px);
+        }
+
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 30px;
+        }
+        .stat-card {
+            background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 12px; padding: 20px; text-align: center;
+        }
+        .stat-value { font-size: 32px; font-weight: 700; color: var(--gold-light); margin-bottom: 6px; }
+        .stat-label { font-size: 13px; color: var(--text-secondary); text-transform: uppercase; }
+
+        .top3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+        .top-card {
+            background: linear-gradient(145deg, rgba(184,134,11,0.12), rgba(184,134,11,0.03));
+            border: 1px solid var(--border-gold); border-radius: 14px; padding: 24px; text-align: center;
+        }
+        .top-rank { font-size: 42px; font-weight: 900; margin-bottom: 8px; }
+        .top-1 .top-rank { color: #ffd700; }
+        .top-2 .top-rank { color: #c8c8c8; }
+        .top-3 .top-rank { color: #cd7f32; }
+        .top-name { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+        .top-score { font-size: 20px; font-weight: 700; color: var(--gold-light); margin-top: 8px; }
+
+        .search-box { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+        .search-input {
+            flex: 1; min-width: 250px; padding: 12px 18px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border-gold);
+            border-radius: 8px; color: var(--text-primary); font-size: 14px;
+        }
+        .filter-btn {
+            padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-gold);
+            border-radius: 8px; color: var(--text-secondary); cursor: pointer; font-size: 13px;
+        }
+        .filter-btn.active { border-color: var(--gold); color: var(--gold-light); background: rgba(184,134,11,0.08); }
+
+        .table-container { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border-gold); }
         table { width: 100%; border-collapse: collapse; font-size: 14px; }
-        th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid rgba(184,134,11,0.08); vertical-align: middle; }
-        th { background: rgba(184,134,11,0.05); color: var(--gold); font-weight: 600; cursor: pointer; user-select: none; white-space: nowrap; }
-        th:hover { background: rgba(184,134,11,0.1); }
-        tr:hover { background: rgba(184,134,11,0.03); }
-        .rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #000; font-weight: bold; font-size: 13px; }
-        .rank-gold { background: linear-gradient(135deg, #ffd700, #ffed4e); }
-        .rank-silver { background: linear-gradient(135deg, #c0c0c0, #e0e0e0); color: #333; }
-        .rank-bronze { background: linear-gradient(135deg, #cd7f32, #e8a860); color: #222; }
+        th, td { padding: 14px 12px; text-align: left; border-bottom: 1px solid rgba(184,134,11,0.08); }
+        th { background: rgba(184,134,11,0.06); color: var(--gold-light); font-weight: 600; cursor: pointer; }
+        tr:hover td { background: rgba(184,134,11,0.03); }
+        .rank-num {
+            width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 13px; margin-right: 10px;
+        }
+        .rank-gold { background: linear-gradient(135deg, #ffd700, #ffed4e); color: #000; }
+        .rank-silver { background: linear-gradient(135deg, #c8c8c8, #e8e8e8); color: #222; }
+        .rank-bronze { background: linear-gradient(135deg, #cd7f32, #e2a060); color: #222; }
+        .rank-default { background: rgba(255,255,255,0.05); color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
+
+        .chart-wrapper { position: relative; height: 340px; margin: 20px 0; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid var(--border-gold); }
+        .chart-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px; }
+        .chart-card { background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 12px; padding: 20px; }
+
+        .sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
+        .sim-group label { display: block; font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+        .sim-group select, .sim-group input {
+            width: 100%; padding: 12px 14px; background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-gold); border-radius: 8px; color: var(--text-primary); font-size: 14px;
+        }
+        .btn-simulate {
+            padding: 14px 28px; background: linear-gradient(135deg, var(--success), #00e676);
+            color: #000; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; font-size: 15px;
+        }
+        .log-container {
+            background: rgba(0,0,0,0.35); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;
+            padding: 16px; max-height: 260px; overflow-y: auto; font-family: monospace; font-size: 13px;
+        }
+        .log-line { padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .log-line.success { color: var(--success); }
+        .log-line.info { color: var(--gold-light); }
+
+        .contacts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+        .contact-card {
+            background: rgba(255,255,255,0.02); border: 1px solid var(--border-gold); border-radius: 10px; padding: 16px;
+        }
+        .contact-card h4 { color: var(--gold-light); font-size: 15px; margin-bottom: 8px; }
+        .contact-card p { font-size: 13px; color: var(--text-secondary); word-break: break-all; }
+
+        .chat-layout { display: grid; grid-template-columns: 300px 1fr; gap: 20px; height: 500px; }
+        @media (max-width: 768px) { .chat-layout { grid-template-columns: 1fr; } }
+        .users-panel {
+            background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 12px; padding: 16px; overflow-y: auto;
+        }
+        .user-item { display: flex; align-items: center; gap: 12px; padding: 10px; border-radius: 6px; cursor: pointer; margin-bottom: 6px; }
+        .user-item:hover, .user-item.active { background: rgba(184,134,11,0.1); }
+        .user-avatar {
+            width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; color: #000; position: relative;
+        }
+        .status-dot {
+            position: absolute; bottom: 0; right: 0; width: 10px; height: 10px; background: var(--success); border-radius: 50%;
+            border: 2px solid var(--bg-main);
+        }
+        .user-name { font-size: 14px; font-weight: 500; }
+        .chat-area {
+            background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 12px; display: flex; flex-direction: column;
+        }
+        .chat-header { padding: 16px 20px; border-bottom: 1px solid var(--border-gold); }
+        .chat-messages { flex: 1; padding: 20px; overflow-y: auto; background: rgba(0,0,0,0.15); }
+        .message { margin-bottom: 20px; max-width: 75%; }
+        .message.sent { margin-left: auto; }
+        .message-bubble { padding: 12px 16px; border-radius: 18px; font-size: 14px; }
+        .message.received .message-bubble { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-bottom-left-radius: 4px; }
+        .message.sent .message-bubble { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: #000; border-bottom-right-radius: 4px; }
+        .message-time { font-size: 11px; color: var(--text-muted); margin-top: 4px; text-align: right; }
+        .chat-input-bar { display: flex; gap: 10px; padding: 16px; border-top: 1px solid var(--border-gold); }
+        .chat-input-bar input {
+            flex: 1; padding: 12px 18px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-gold);
+            border-radius: 24px; color: var(--text-primary); font-size: 14px;
+        }
+        .send-btn {
+            width: 44px; height: 44px; border-radius: 50%; background: var(--gold); border: none; cursor: pointer;
+            font-size: 18px; color: #000;
+        }
+
+        .modal-backdrop {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center;
+            z-index: 2000; padding: 20px; backdrop-filter: blur(4px);
+        }
+        .modal-backdrop.active { display: flex; }
+        .modal-box {
+            background: var(--bg-main); border: 1px solid var(--gold); border-radius: 14px; padding: 32px; max-width: 400px; width: 100%;
+            box-shadow: 0 0 40px rgba(184,134,11,0.15);
+        }
+        .modal-box h3 { text-align: center; margin-bottom: 24px; font-size: 22px; }
+        .modal-box input {
+            width: 100%; padding: 14px 16px; margin-bottom: 16px;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border-gold);
+            border-radius: 8px; color: var(--text-primary); font-size: 14px;
+        }
+        .modal-box button { width: 100%; padding: 14px; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; border: none; }
         
-        .chart-container { position: relative; height: 320px; margin: 20px 0; }
+        /* ===== BOTÃO GOOGLE ===== */
+        .btn-google {
+            background: #fff; color: #333; display: flex; align-items: center; justify-content: center; gap: 10px;
+            border-radius: 8px; font-weight: 500; margin-bottom: 12px; transition: background 0.2s;
+        }
+        .btn-google:hover { background: #f0f0f0; }
+        .btn-google img { width: 20px; height: 20px; }
         
-        .sim-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
-        .sim-form select, .sim-form input, .sim-form button { padding: 10px 12px; border-radius: 6px; border: 1px solid var(--border); background: rgba(255,255,255,0.03); color: #fff; font-size: 14px; }
-        .sim-form button { background: var(--gold); color: #000; font-weight: 600; border: none; cursor: pointer; }
-        .sim-form button:hover { background: var(--gold-light); }
+        .divider {
+            display: flex; align-items: center; gap: 12px; margin: 20px 0; color: var(--text-muted); font-size: 13px;
+        }
+        .divider::before, .divider::after {
+            content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1);
+        }
         
-        .log-box { background: rgba(0,0,0,0.25); border-left: 2px solid var(--gold); padding: 14px; border-radius: 0 6px 6px 0; margin-top: 16px; max-height: 180px; overflow-y: auto; font-family: monospace; font-size: 13px; color: #aaa; }
-        .log-entry { margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .log-entry.success { color: #4cd137; }
-        
-        .contacts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-        .contact-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
-        .contact-card h4 { color: var(--gold-light); font-size: 15px; margin-bottom: 6px; }
-        .contact-card p { font-size: 13px; color: #aaa; word-break: break-all; }
-        
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); display: none; align-items: center; justify-content: center; z-index: 200; padding: 20px; }
-        .modal-overlay.active { display: flex; }
-        .modal { background: var(--bg-dark); border: 1px solid var(--gold); border-radius: 12px; padding: 30px; max-width: 400px; width: 100%; }
-        .modal h3 { text-align: center; margin-bottom: 24px; }
-        .modal input { width: 100%; padding: 12px; margin-bottom: 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; color: #fff; font-size: 14px; }
-        .modal button { width: 100%; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer; border: none; font-size: 15px; }
-        .modal .close-btn { background: transparent; color: var(--text-muted); margin-top: 10px; }
-        .modal .close-btn:hover { color: #fff; }
-        .modal .toggle-text { text-align: center; margin-top: 16px; font-size: 14px; color: var(--text-muted); }
-        .modal .toggle-text span { color: var(--gold); cursor: pointer; }
-        
-        footer { text-align: center; padding: 30px 0; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; margin-top: 60px; }
-        
-        .total-box { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
-        .total-card { background: rgba(184,134,11,0.05); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; flex: 1; min-width: 160px; text-align: center; }
-        .total-card .val { font-size: 22px; font-weight: bold; color: var(--gold); }
-        .total-card .lab { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-        
-        @media(max-width: 768px) {
-            h2 { font-size: 22px; }
-            .chart-container { height: 240px; }
-            nav a { padding: 6px 8px; font-size: 13px; }
-            th, td { padding: 10px 6px; font-size: 13px; }
+        .modal-box .btn-primary { margin-top: 8px; }
+        .modal-box .btn-link { background: transparent; color: var(--gold-light); margin-top: 12px; font-size: 14px; }
+        .modal-box .btn-close { background: transparent; color: var(--text-muted); margin-top: 8px; }
+
+        .security-banner {
+            background: linear-gradient(90deg, rgba(0, 200, 83, 0.05), rgba(0, 200, 83, 0.02));
+            border: 1px solid rgba(0, 200, 83, 0.2); border-radius: 8px; padding: 14px 18px;
+            display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;
+        }
+        .security-icon { font-size: 24px; }
+        .security-text h4 { font-size: 14px; color: var(--success); }
+        .security-text p { font-size: 12px; color: var(--text-secondary); }
+
+        footer {
+            text-align: center; padding: 40px 0; border-top: 1px solid var(--border-gold);
+            color: var(--text-muted); font-size: 13px; margin-top: 60px;
+        }
+
+        #toast {
+            position: fixed; top: 90px; right: 20px; background: var(--bg-card); border: 1px solid var(--gold);
+            border-radius: 8px; padding: 14px 20px; z-index: 3000; display: none; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 600px) {
+            .top3-grid { grid-template-columns: 1fr; }
+            .chart-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <header class="container">
-        <a href="#" class="logo" onclick="showTab('home')">
-            <div class="logo-icon">👑</div>
-            <div class="logo-text">
-                <h1>IMPÉRIO REAL</h1>
-                <p>Inteligência Jornalística</p>
-            </div>
-        </a>
-        <nav>
-            <a href="#" class="active" onclick="showTab('home'); return false;">Início</a>
-            <a href="#" onclick="showTab('ranking'); return false;">Ranking</a>
-            <a href="#" onclick="showTab('simulacao'); return false;">Simulação</a>
-            <a href="#" onclick="showTab('contatos'); return false;">Contatos</a>
-            <button onclick="openModal('loginModal')">Entrar</button>
-            <button class="btn btn-gold" style="padding:6px 14px; font-size:13px;" onclick="openModal('registerModal')">Criar Conta</button>
-        </nav>
+
+    <!-- 🔔 TOAST NOTIFICAÇÃO -->
+    <div id="toast"></div>
+
+    <!-- 🔐 MODAL DE LOGIN ATUALIZADO -->
+    <div class="modal-backdrop" id="loginModal">
+        <div class="modal-box">
+            <h3>👑 Entrar na Plataforma</h3>
+            
+            <!-- 🟦 ENTRAR COM GOOGLE -->
+            <button class="btn-google" onclick="showToast('✅ Abrindo login com Google...')">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                Entrar com Google
+            </button>
+            
+            <div class="divider">ou use sua conta</div>
+            
+            <!-- 🔑 ENTRAR COM CONTA PRÓPRIA -->
+            <input type="email" id="loginEmail" placeholder="Seu e-mail">
+            <input type="password" id="loginPassword" placeholder="Sua senha">
+            <button class="btn-primary" onclick="closeModal('loginModal'); showToast('✅ Login realizado com sucesso! Bem-vindo(a) de volta!')">Entrar</button>
+            
+            <button class="btn-link" onclick="closeModal('loginModal'); openModal('registerModal');">Não tem conta? Criar conta</button>
+            <button class="btn-close" onclick="closeModal('loginModal')">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- 📝 MODAL DE CADASTRO ATUALIZADO -->
+    <div class="modal-backdrop" id="registerModal">
+        <div class="modal-box">
+            <h3>📝 Criar sua conta</h3>
+            
+            <!-- 🟦 CADASTRAR COM GOOGLE -->
+            <button class="btn-google" onclick="showToast('✅ Abrindo cadastro com Google...')">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                Cadastrar com Google
+            </button>
+            
+            <div class="divider">ou crie sua conta</div>
+            
+            <!-- ✏️ CRIAR CONTA PRÓPRIA -->
+            <input type="text" placeholder="Nome completo">
+            <input type="email" placeholder="Seu e-mail">
+            <input type="password" placeholder="Criar senha (mínimo 8 caracteres)">
+            <input type="password" placeholder="Confirmar senha">
+            <button class="btn-primary" onclick="closeModal('registerModal'); showToast('✅ Conta criada com sucesso! Bem-vindo(a) ao Império Real! 🎉')">Criar Conta</button>
+            
+            <button class="btn-link" onclick="closeModal('registerModal'); openModal('loginModal');">Já tem conta? Entrar</button>
+            <button class="btn-close" onclick="closeModal('registerModal')">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- 🕒 BARRA DE STATUS -->
+    <div class="timer-bar">
+        <span class="timer-text">⏱️ Próxima atualização do sistema: </span>
+        <span class="timer-value" id="mainTimer">02:00</span>
+        <span class="ai-status"><span class="ai-dot"></span> IA IMPÉRIO REAL — Analisando e verificando notícias em tempo real</span>
+    </div>
+
+    <!-- 📌 CABEÇALHO -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo" onclick="showTab('dashboard'); return false;">
+                <div class="logo-icon">👑</div>
+                <div class="logo-text">
+                    <h1>IMPÉRIO REAL</h1>
+                    <p>Inteligência Jornalística & Verificação</p>
+                </div>
+            </a>
+            <nav>
+                <a href="#" class="active" onclick="showTab('dashboard'); return false;">Painel</a>
+                <a href="#" onclick="showTab('ranking'); return false;">Ranking</a>
+                <a href="#" onclick="showTab('simulacao'); return false;">Simulação</a>
+                <a href="#" onclick="showTab('comunidade'); return false;">Comunidade</a>
+                <a href="#" onclick="showTab('contatos'); return false;">Contatos</a>
+                <button onclick="openModal('loginModal')">🔐 Entrar</button>
+                <button class="btn btn-primary" style="padding:7px 16px; font-size:13px;" onclick="openModal('registerModal')">Criar Conta</button>
+            </nav>
+        </div>
     </header>
 
     <main class="container">
-        <!-- ⏱️ CONTADOR DE 2 MINUTOS -->
-        <div class="timer-box">
-            <div class="timer-label">⏱️ Ciclo de Atualização do Sistema</div>
-            <div class="timer-value" id="mainTimer">02:00</div>
-        </div>
 
-        <!-- 🏠 ABA INÍCIO -->
-        <div id="tab-home" class="tab-content active">
-            <h2>Bem-vindo à Plataforma de Inteligência Jornalística</h2>
-            <p style="color:var(--text-muted); max-width:700px; line-height:1.7; margin-bottom:30px;">
-                Sistema completo de classificação, pontuação e acompanhamento de veículos de comunicação. 
-                Acompanhe o desempenho, a agilidade e o impacto das notícias em tempo real.
-            </p>
-
-            <div class="total-box">
-                <div class="total-card">
-                    <div class="val" id="totalPoints">0</div>
-                    <div class="lab">Pontuação Total</div>
-                </div>
-                <div class="total-card">
-                    <div class="val" id="totalProfit">R$ 0,00</div>
-                    <div class="lab">Lucro Gerado</div>
-                </div>
-                <div class="total-card">
-                    <div class="val" id="totalNews">0</div>
-                    <div class="lab">Notícias Registradas</div>
-                </div>
-                <div class="total-card">
-                    <div class="val">20</div>
-                    <div class="lab">Veículos Ativos</div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>📊 Desempenho Geral</h3>
-                <div class="chart-container">
-                    <canvas id="mainChart"></canvas>
-                </div>
+        <!-- 🔒 AVISO DE SEGURANÇA -->
+        <div class="security-banner" style="margin-top:24px;">
+            <span class="security-icon">🛡️</span>
+            <div class="security-text">
+                <h4>Plataforma Segura e Verificada</h4>
+                <p>Faça login com Google ou crie sua conta exclusiva. Seus dados estão protegidos e todas as notícias passam por verificação de nossa IA.</p>
             </div>
         </div>
 
-        <!-- 📈 ABA RANKING -->
+        <!-- ============================================== -->
+        <!-- 📊 ABA 1 — PAINEL GERAL -->
+        <!-- ============================================== -->
+        <div id="tab-dashboard" class="tab-content active">
+            <h2>📊 Painel de Inteligência</h2>
+            <p class="subtitle">Visão geral do desempenho e da credibilidade dos veículos de comunicação monitorados</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">1.284</div>
+                    <div class="stat-label">Notícias Verificadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">89.450</div>
+                    <div class="stat-label">Pontuação Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">R$ 24.890,00</div>
+                    <div class="stat-label">Lucro Gerado</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">20</div>
+                    <div class="stat-label">Veículos Ativos</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top:36px;">🏆 Top 3 — Mais Informações Confiáveis</h3>
+            <div class="top3-grid">
+                <div class="top-card top-2">
+                    <div class="top-rank">2º</div>
+                    <div class="top-name">Folha de S.Paulo</div>
+                    <div class="top-score">4.520 pts</div>
+                </div>
+                <div class="top-card top-1" style="transform:scale(1.05);">
+                    <div class="top-rank">1º</div>
+                    <div class="top-name">G1 / Globo</div>
+                    <div class="top-score">6.890 pts</div>
+                </div>
+                <div class="top-card top-3">
+                    <div class="top-rank">3º</div>
+                    <div class="top-name">CNN Brasil</div>
+                    <div class="top-score">3.940 pts</div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:36px;">
+                <h3>📈 Desempenho Geral</h3>
+                <div class="chart-wrapper">
+                    <canvas id="dashboardChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- 📈 ABA 2 — RANKING COMPLETO -->
+        <!-- ============================================== -->
         <div id="tab-ranking" class="tab-content">
-            <h2>🏆 Ranking de Veículos de Imprensa</h2>
-            
-            <input type="text" class="search-bar" id="searchInput" placeholder="🔍 Buscar veículo...">
-            
-            <div class="table-wrapper">
-                <table id="rankingTable">
+            <h2>🏆 Ranking Completo de Veículos</h2>
+            <p class="subtitle">Pontuação baseada em volume de notícias, furos jornalísticos, agilidade e credibilidade</p>
+
+            <div class="search-box">
+                <input type="text" class="search-input" id="searchVehicle" placeholder="🔍 Buscar veículo...">
+            </div>
+
+            <div class="table-container">
+                <table>
                     <thead>
                         <tr>
-                            <th onclick="sortTable('rank')">#</th>
-                            <th onclick="sortTable('name')">Veículo</th>
-                            <th onclick="sortTable('news')">📰 Notícias</th>
-                            <th onclick="sortTable('scoops')">🔥 Furos</th>
-                            <th onclick="sortTable('agility')">⚡ Agilidade</th>
-                            <th onclick="sortTable('points')">⭐ Pontos</th>
-                            <th onclick="sortTable('profit')">💰 Lucro Gerado</th>
+                            <th>Posição</th>
+                            <th>Veículo</th>
+                            <th>📰 Notícias</th>
+                            <th>🔥 Furos</th>
+                            <th>⚡ Agilidade</th>
+                            <th>⭐ Pontos</th>
+                            <th>💰 Lucro Gerado</th>
                         </tr>
                     </thead>
-                    <tbody id="rankingBody">
-                        <!-- Preenchido por JavaScript -->
-                    </tbody>
+                    <tbody id="rankingTableBody"></tbody>
                 </table>
             </div>
         </div>
 
-        <!-- 🎮 ABA SIMULAÇÃO -->
+        <!-- ============================================== -->
+        <!-- 🎮 ABA 3 — SIMULADOR -->
+        <!-- ============================================== -->
         <div id="tab-simulacao" class="tab-content">
             <h2>🎮 Simulador de Furo Jornalístico</h2>
-            <p style="color:var(--text-muted); margin-bottom:20px;">Selecione um veículo e adicione uma notícia ou furo. Veja a pontuação e o lucro serem atualizados instantaneamente no ranking e no gráfico.</p>
-            
-            <div class="card sim-form">
-                <div>
-                    <label style="display:block; margin-bottom:6px; font-size:14px; color:var(--gold-light);">Veículo de Imprensa</label>
-                    <select id="simVehicle"></select>
-                </div>
-                <div>
-                    <label style="display:block; margin-bottom:6px; font-size:14px; color:var(--gold-light);">Tipo de Notícia</label>
-                    <select id="simType">
-                        <option value="normal">Notícia Padrão (+10 pts / R$ 50,00)</option>
-                        <option value="scoop">Furo Jornalístico (+50 pts / R$ 350,00)</option>
-                        <option value="major">Grande Reportagem (+100 pts / R$ 700,00)</option>
-                    </select>
-                </div>
-                <div>
-                    <label style="display:block; margin-bottom:6px; font-size:14px; color:var(--gold-light);">Agilidade (1-10)</label>
-                    <input type="number" id="simAgility" min="1" max="10" value="8">
-                </div>
-                <div style="display:flex; align-items:flex-end;">
-                    <button onclick="simulateNews()" style="width:100%;">🚀 Registrar Notícia</button>
+            <p class="subtitle">Registre notícias e veja o ranking e os gráficos atualizando em tempo real</p>
+
+            <div class="card">
+                <div class="sim-grid">
+                    <div class="sim-group">
+                        <label>🏢 Veículo</label>
+                        <select id="simVehicleSelect"></select>
+                    </div>
+                    <div class="sim-group">
+                        <label>📋 Tipo</label>
+                        <select id="simNewsType">
+                            <option value="normal">Notícia Padrão (+10 pts)</option>
+                            <option value="scoop">🔥 Furo (+50 pts)</option>
+                            <option value="major">⭐ Grande Reportagem (+100 pts)</option>
+                        </select>
+                    </div>
+                    <div class="sim-group">
+                        <label>⚡ Agilidade (1-10)</label>
+                        <input type="number" id="simAgilityValue" min="1" max="10" value="8">
+                    </div>
+                    <div class="sim-group" style="display:flex; align-items:flex-end;">
+                        <button class="btn-simulate" onclick="registerNews()">🚀 Registrar</button>
+                    </div>
                 </div>
             </div>
 
             <div class="card">
-                <h3>📋 Histórico de Simulação</h3>
-                <div class="log-box" id="simLog">
-                    <div class="log-entry">Sistema inicializado — pronto para registrar notícias.</div>
+                <h3>📋 Histórico</h3>
+                <div class="log-container" id="simulationLog">
+                    <div class="log-line info"><span>--:--:--</span> Sistema online — IA verificadora ativa</div>
                 </div>
             </div>
         </div>
 
-        <!-- 📬 ABA CONTATOS -->
-        <div id="tab-contatos" class="tab-content">
-            <h2>📬 Contato com Veículos de Imprensa</h2>
-            <p style="color:var(--text-muted); margin-bottom:24px;">Endereços de e-mail corretos para contato com os principais veículos de comunicação.</p>
-            
-            <div class="contacts-grid" id="contactsGrid">
-                <!-- Preenchido por JavaScript -->
+        <!-- ============================================== -->
+        <!-- 💬 ABA 4 — COMUNIDADE -->
+        <!-- ============================================== -->
+        <div id="tab-comunidade" class="tab-content">
+            <h2>💬 Comunidade e Mensagens</h2>
+            <p class="subtitle">Conecte-se com outros usuários e com a equipe do Império Real</p>
+
+            <div class="chat-layout">
+                <div class="users-panel">
+                    <h4 style="color:var(--gold-light); margin-bottom:16px;">🟢 Usuários Online</h4>
+                    <div id="usersList">
+                        <div class="user-item active">
+                            <div class="user-avatar">👑<span class="status-dot"></span></div>
+                            <div>
+                                <div class="user-name">Equipe Império Real</div>
+                                <div class="user-role">Administrador</div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="user-avatar">A<span class="status-dot"></span></div>
+                            <div>
+                                <div class="user-name">Ana Jornalista</div>
+                                <div class="user-role">Usuário</div>
+                            </div>
+                        </div>
+                        <div class="user-item">
+                            <div class="user-avatar">M<span class="status-dot"></span></div>
+                            <div>
+                                <div class="user-name">Marcos M.</div>
+                                <div class="user-role">Usuário</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-area">
+                    <div class="chat-header">
+                        <strong>Equipe Império Real</strong>
+                        <div style="font-size:12px; color:var(--success);">🟢 Online agora</div>
+                    </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message received">
+                            <div class="message-bubble">Olá! Bem-vindo à comunidade do Império Real. Faça sua pergunta ou troque ideias com outros profissionais! 🤝</div>
+                            <div class="message-time">Hoje às 11:30</div>
+                        </div>
+                    </div>
+                    <div class="chat-input-bar">
+                        <input type="text" id="messageInput" placeholder="Digite sua mensagem..." onkeypress="if(event.key==='Enter')sendMessage()">
+                        <button class="send-btn" onclick="sendMessage()">➤</button>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- ============================================== -->
+        <!-- 📬 ABA 5 — CONTATOS -->
+        <!-- ============================================== -->
+        <div id="tab-contatos" class="tab-content">
+            <h2>📬 Contato com Veículos</h2>
+            <p class="subtitle">Endereços oficiais de redação e parcerias</p>
+            <div class="contacts-grid" id="contactsContainer"></div>
+        </div>
+
     </main>
 
-    <!-- 🔐 MODAL DE LOGIN -->
-    <div class="modal-overlay" id="loginModal">
-        <div class="modal">
-            <h3>👑 Entrar na Plataforma</h3>
-            <input type="email" placeholder="Seu e-mail">
-            <input type="password" placeholder="Sua senha">
-            <button class="btn btn-gold">Entrar</button>
-            <div class="toggle-text">
-                Não tem conta? <span onclick="closeModal('loginModal'); openModal('registerModal');">Criar conta</span>
-            </div>
-            <button class="close-btn" onclick="closeModal('loginModal')">Cancelar</button>
-        </div>
-    </div>
-
-    <!-- 📝 MODAL DE CADASTRO -->
-    <div class="modal-overlay" id="registerModal">
-        <div class="modal">
-            <h3>📝 Criar Conta</h3>
-            <input type="text" placeholder="Nome completo">
-            <input type="email" placeholder="Seu e-mail">
-            <input type="password" placeholder="Criar senha">
-            <input type="password" placeholder="Confirmar senha">
-            <button class="btn btn-gold">Criar Conta</button>
-            <div class="toggle-text">
-                Já tem conta? <span onclick="closeModal('registerModal'); openModal('loginModal');">Entrar</span>
-            </div>
-            <button class="close-btn" onclick="closeModal('registerModal')">Cancelar</button>
-        </div>
-    </div>
-
     <footer>
-        <p>© 2026 Império Real — Plataforma de Inteligência Jornalística. Todos os direitos reservados.</p>
-        <p>Contato: realimperio57@gmail.com | +55 (43) 98801-5392</p>
+        <p>© 2026 Império Real — Plataforma de Inteligência Jornalística</p>
+        <p>Contato: realimperio57@gmail.com | Londrina — Paraná — Brasil</p>
+        <p style="margin-top:8px; font-size:11px;">🛡️ Dados criptografados • Verificação por Inteligência Artificial</p>
     </footer>
 
     <script>
         // =====================================================
-        // DADOS DOS 20 VEÍCULOS
+        // 📋 DADOS DOS 20 VEÍCULOS
         // =====================================================
         const vehicles = [
-            { id:1, name:'G1 / Globo', email:'redacao@g1.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:2, name:'Folha de S.Paulo', email:'redacao@folha.uol.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:3, name:'CNN Brasil', email:'contato@cnnbrasil.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:4, name:'Reuters', email:'media.reuters.com/form', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:5, name:'BBC News', email:'haveyoursay@bbc.co.uk', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:6, name:'O Globo', email:'redacao@oglobo.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:7, name:'Estadão', email:'redacao@estadao.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:8, name:'Valor Econômico', email:'redacao@valor.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:9, name:'Jovem Pan', email:'contato@jovempan.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:10, name:'UOL', email:'contato@uol.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:11, name:'Revista Veja', email:'redacao@veja.abril.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:12, name:'Band News', email:'contato@band.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:13, name:'CBN', email:'contato@cbn.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:14, name:'Exame', email:'redacao@exame.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:15, name:'IstoÉ', email:'redacao@istoe.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:16, name:'Correio Braziliense', email:'redacao@correiobraziliense.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:17, name:'Zero Hora', email:'redacao@zerohora.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:18, name:'Metrópoles', email:'redacao@metropoles.com', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:19, name:'Poder360', email:'contato@poder360.com.br', news:0, scoops:0, agility:0, points:0, profit:0 },
-            { id:20, name:'O Estado de S.Paulo', email:'redacao@estadao.com.br', news:0, scoops:0, agility:0, points:0, profit:0 }
+            { id:1, name:'G1 / Globo', email:'redacao@g1.com.br', news:245, scoops:38, agility:8.7, points:6890, profit:34450.00 },
+            { id:2, name:'Folha de S.Paulo', email:'redacao@folha.uol.com.br', news:186, scoops:29, agility:8.2, points:4520, profit:22600.00 },
+            { id:3, name:'CNN Brasil', email:'contato@cnnbrasil.com.br', news:158, scoops:25, agility:8.5, points:3940, profit:19700.00 },
+            { id:4, name:'Reuters', email:'media.reuters.com/form', news:142, scoops:33, agility:9.2, points:4100, profit:20500.00 },
+            { id:5, name:'BBC News', email:'haveyoursay@bbc.co.uk', news:135, scoops:31, agility:8.8, points:3800, profit:19000.00 },
+            { id:6, name:'O Globo', email:'redacao@oglobo.com.br', news:128, scoops:22, agility:7.9, points:3100, profit:15500.00 },
+            { id:7, name:'Estadão', email:'redacao@estadao.com.br', news:115, scoops:24, agility:8.1, points:3050, profit:15250.00 },
+            { id:8, name:'Valor Econômico', email:'redacao@valor.com.br', news:98, scoops:18, agility:7.5, points:2400, profit:12000.00 },
+            { id:9, name:'Jovem Pan', email:'contato@jovempan.com.br', news:105, scoops:15, agility:8.3, points:2350, profit:11750.00 },
+            { id:10, name:'UOL', email:'contato@uol.com.br', news:110, scoops:20, agility:8.0, points:2600, profit:13000.00 },
+            { id:11, name:'Revista Veja', email:'redacao@veja.abril.com.br', news:92, scoops:16, agility:7.2, points:2100, profit:10500.00 },
+            { id:12, name:'Band News', email:'contato@band.com.br', news:88, scoops:14, agility:7.8, points:1950, profit:9750.00 },
+            { id:13, name:'CBN', email:'contato@cbn.com.br', news:76, scoops:12, agility:8.4, points:1800, profit:9000.00 },
+            { id:14, name:'Exame', email:'redacao@exame.com.br', news:82, scoops:13, agility:7.0, points:1850, profit:9250.00 },
+            { id:15, name:'IstoÉ', email:'redacao@istoe.com.br', news:74, scoops:11, agility:7.1, points:1700, profit:8500.00 },
+            { id:16, name:'Correio Braziliense', email:'redacao@correiobraziliense.com.br', news:68, scoops:9, agility:7.3, points:1550, profit:7750.00 },
+            { id:17, name:'Zero Hora', email:'redacao@zerohora.com.br', news:65, scoops:10, agility:7.4, points:1500, profit:7500.00 },
+            { id:18, name:'Metrópoles', email:'redacao@metropoles.com', news:72, scoops:13, agility:7.6, points:1750, profit:8750.00 },
+            { id:19, name:'Poder360', email:'contato@poder360.com.br', news:58, scoops:8, agility:7.7, points:1350, profit:6750.00 },
+            { id:20, name:'O Estado de S.Paulo', email:'redacao@estadao.com.br', news:85, scoops:17, agility:8.0, points:2200, profit:11000.00 }
         ];
 
-        let sortKey = 'points';
-        let sortDir = -1;
-        let totalNewsCount = 0;
-
-        // =====================================================
-        // CONTADOR DE 2 MINUTOS
-        // =====================================================
         let timerSeconds = 120;
         function updateTimer() {
             const m = Math.floor(timerSeconds / 60);
             const s = timerSeconds % 60;
-            document.getElementById('mainTimer').textContent = 
-                `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+            document.getElementById('mainTimer').textContent = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
             timerSeconds--;
             if (timerSeconds < 0) timerSeconds = 120;
         }
         setInterval(updateTimer, 1000);
 
-        // =====================================================
-        // NAVEGAÇÃO ENTRE ABAS
-        // =====================================================
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('nav a').forEach(el => el.classList.remove('active'));
             document.getElementById(`tab-${tabName}`).classList.add('active');
             event.target.classList.add('active');
             
-            if (tabName === 'ranking') renderTable();
+            if (tabName === 'ranking') renderRanking();
             if (tabName === 'contatos') renderContacts();
             if (tabName === 'simulacao') updateVehicleSelect();
-            if (tabName === 'home') updateTotals();
+            if (tabName === 'dashboard') setTimeout(initChart, 100);
         }
 
-        // =====================================================
-        // MODAIS DE LOGIN/CADASTRO
-        // =====================================================
         function openModal(id) {
             document.getElementById(id).classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -345,61 +623,46 @@
             document.getElementById(id).classList.remove('active');
             document.body.style.overflow = '';
         }
-        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        document.querySelectorAll('.modal-backdrop').forEach(overlay => {
             overlay.addEventListener('click', e => {
-                if (e.target === overlay) {
-                    overlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
+                if (e.target === overlay) { closeModal(overlay.id); }
             });
         });
 
-        // =====================================================
-        // RENDERIZAR TABELA DE RANKING
-        // =====================================================
-        function renderTable() {
-            const search = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = vehicles.filter(v => v.name.toLowerCase().includes(search));
-            const sorted = [...filtered].sort((a,b) => {
-                if (sortKey === 'name') return sortDir * a.name.localeCompare(b.name);
-                return sortDir * (a[sortKey] - b[sortKey]);
-            });
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.style.display = 'block';
+            setTimeout(() => t.style.display = 'none', 3500);
+        }
 
-            const tbody = document.getElementById('rankingBody');
-            tbody.innerHTML = sorted.map((v, idx) => {
-                const rankPos = vehicles.indexOf(v) + 1;
-                let rankClass = '';
-                if (idx === 0) rankClass = 'rank-gold';
-                else if (idx === 1) rankClass = 'rank-silver';
-                else if (idx === 2) rankClass = 'rank-bronze';
-                
+        function renderRanking() {
+            const search = document.getElementById('searchVehicle').value.toLowerCase();
+            const filtered = vehicles.filter(v => v.name.toLowerCase().includes(search));
+            const sorted = [...filtered].sort((a,b) => b.points - a.points);
+            
+            document.getElementById('rankingTableBody').innerHTML = sorted.map((v, i) => {
+                let rankClass = 'rank-default';
+                if (i === 0) rankClass = 'rank-gold';
+                else if (i === 1) rankClass = 'rank-silver';
+                else if (i === 2) rankClass = 'rank-bronze';
                 return `
                     <tr>
-                        <td><span class="rank-badge ${rankClass}">${idx+1}</span></td>
+                        <td><span class="rank-num ${rankClass}">${i+1}</span></td>
                         <td><strong>${v.name}</strong></td>
                         <td>${v.news}</td>
                         <td>${v.scoops}</td>
                         <td>${v.agility.toFixed(1)}</td>
                         <td><strong style="color:var(--gold-light)">${v.points}</strong></td>
-                        <td><strong style="color:#4cd137">R$ ${v.profit.toFixed(2).replace('.',',')}</strong></td>
+                        <td><strong style="color:var(--success)">R$ ${v.profit.toLocaleString('pt-BR',{minimumFractionDigits:2})}</strong></td>
                     </tr>
                 `;
             }).join('');
         }
+        document.getElementById('searchVehicle').addEventListener('input', renderRanking);
 
-        function sortTable(key) {
-            if (sortKey === key) sortDir *= -1;
-            else { sortKey = key; sortDir = -1; }
-            renderTable();
-        }
-
-        document.getElementById('searchInput').addEventListener('input', renderTable);
-
-        // =====================================================
-        // RENDERIZAR CONTATOS
-        // =====================================================
         function renderContacts() {
-            document.getElementById('contactsGrid').innerHTML = vehicles.map(v => `
+            document.getElementById('contactsContainer').innerHTML = vehicles.map(v => `
                 <div class="contact-card">
                     <h4>${v.name}</h4>
                     <p>📧 ${v.email}</p>
@@ -407,126 +670,56 @@
             `).join('');
         }
 
-        // =====================================================
-        // ATUALIZAR SELECT DE VEÍCULOS
-        // =====================================================
         function updateVehicleSelect() {
-            const select = document.getElementById('simVehicle');
+            const select = document.getElementById('simVehicleSelect');
             select.innerHTML = vehicles.map(v => `<option value="${v.id}">${v.name}</option>`).join('');
         }
 
-        // =====================================================
-        // SIMULAÇÃO DE NOTÍCIA/FURO
-        // =====================================================
-        function simulateNews() {
-            const vid = parseInt(document.getElementById('simVehicle').value);
-            const type = document.getElementById('simType').value;
-            const agility = parseInt(document.getElementById('simAgility').value);
+        function registerNews() {
+            const vid = parseInt(document.getElementById('simVehicleSelect').value);
+            const type = document.getElementById('simNewsType').value;
+            const agility = parseInt(document.getElementById('simAgilityValue').value);
             const v = vehicles.find(x => x.id === vid);
             
-            let pointsGained = 0;
-            let profitGained = 0;
-            let label = '';
-
-            if (type === 'normal') {
-                pointsGained = 10 + Math.floor(agility / 2);
-                profitGained = 50.00;
-                v.news++;
-                label = 'Notícia Padrão';
-            } else if (type === 'scoop') {
-                pointsGained = 50 + agility * 3;
-                profitGained = 350.00;
-                v.scoops++;
-                v.news++;
-                label = 'FURO JORNALÍSTICO';
-            } else if (type === 'major') {
-                pointsGained = 100 + agility * 5;
-                profitGained = 700.00;
-                v.scoops++;
-                v.news++;
-                label = 'GRANDE REPORTAGEM';
-            }
-
-            v.points += pointsGained;
-            v.profit += profitGained;
+            let pts = 0, prf = 0, lbl = '';
+            if (type === 'normal') { pts = 10; prf = 50; lbl = 'Notícia Padrão'; v.news++; }
+            else if (type === 'scoop') { pts = 50; prf = 350; lbl = 'FURO JORNALÍSTICO'; v.scoops++; v.news++; }
+            else if (type === 'major') { pts = 100; prf = 700; lbl = 'GRANDE REPORTAGEM'; v.scoops++; v.news++; }
+            
+            v.points += pts;
+            v.profit += prf;
             v.agility = (v.agility * (v.news - 1) + agility) / v.news;
-            totalNewsCount++;
-
+            
             const time = new Date().toLocaleTimeString('pt-BR');
-            document.getElementById('simLog').innerHTML = `
-                <div class="log-entry success">[${time}] ✅ ${v.name} — ${label}<br>&nbsp;&nbsp;+${pointsGained} pts | +R$ ${profitGained.toFixed(2).replace('.',',')} | Agilidade: ${agility}/10</div>
-            ` + document.getElementById('simLog').innerHTML;
-
-            renderTable();
-            updateTotals();
-            updateChart();
+            document.getElementById('simulationLog').innerHTML =
+                `<div class="log-line success">[${time}] ✅ ${v.name} — ${lbl} | +${pts} pts | +R$ ${prf.toFixed(2)}</div>` +
+                document.getElementById('simulationLog').innerHTML;
+            
+            renderRanking();
+            showToast(`✅ ${lbl} registrada com sucesso! +${pts} pontos`);
         }
 
-        // =====================================================
-        // ATUALIZAR TOTAIS
-        // =====================================================
-        function updateTotals() {
-            const totalPts = vehicles.reduce((s,v) => s + v.points, 0);
-            const totalPrf = vehicles.reduce((s,v) => s + v.profit, 0);
-            document.getElementById('totalPoints').textContent = totalPts.toLocaleString('pt-BR');
-            document.getElementById('totalProfit').textContent = `R$ ${totalPrf.toFixed(2).replace('.',',')}`;
-            document.getElementById('totalNews').textContent = totalNewsCount;
-        }
-
-        // =====================================================
-        // GRÁFICO
-        // =====================================================
-        let chart;
-        function initChart() {
-            const ctx = document.getElementById('mainChart').getContext('2d');
-            chart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: vehicles.map(v => v.name.length > 14 ? v.name.substring(0,14)+'...' : v.name),
-                    datasets: [
-                        { label: 'Pontuação', data: vehicles.map(v => v.points), backgroundColor: '#b8860b', borderRadius: 4 },
-                        { label: 'Lucro (R$)', data: vehicles.map(v => v.profit / 5), backgroundColor: '#4cd137', borderRadius: 4 }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#888' } },
-                        x: { grid: { display: false }, ticks: { color: '#888', font: { size: 10 } } }
-                    },
-                    plugins: {
-                        legend: { labels: { color: '#ccc' } },
-                        tooltip: {
-                            callbacks: {
-                                label: function(ctx) {
-                                    if (ctx.dataset.label === 'Lucro (R$)') {
-                                        return `Lucro: R$ ${(ctx.raw * 5).toFixed(2).replace('.',',')}`;
-                                    }
-                                    return `${ctx.dataset.label}: ${ctx.raw}`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        function updateChart() {
-            chart.data.datasets[0].data = vehicles.map(v => v.points);
-            chart.data.datasets[1].data = vehicles.map(v => v.profit / 5);
-            chart.update();
-        }
-
-        // =====================================================
-        // INICIALIZAÇÃO
-        // =====================================================
-        window.onload = function() {
-            renderTable();
-            updateVehicleSelect();
-            initChart();
-            updateTotals();
-        };
-    </script>
-</body>
-</html>
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            const time = new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
+            const container = document.getElementById('chatMessages');
+            container.innerHTML += `
+                <div class="message sent">
+                    <div class="message-bubble">${text}</div>
+                    <div class="message-time">${time}</div>
+                </div>
+            `;
+            input.value = '';
+            container.scrollTop = container.scrollHeight;
+            
+            setTimeout(() => {
+                container.innerHTML += `
+                    <div class="message received">
+                        <div class="message-bubble">Obrigado pela sua mensagem! Em breve alguém da nossa equipe responderá. 💬</div>
+                        <div class="message-time">${new Date().toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'})}</div>
+                    </div>
+                `;
+                container.scrollTop = container.scroll
