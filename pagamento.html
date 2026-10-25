@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento | IMPÉRIO REAL</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #0a0a12 0%, #1a1a2e 50%, #16213e 100%); min-height: 100vh; color: #fff; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        
+        header { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(184, 134, 11, 0.2); margin-bottom: 50px; flex-wrap: wrap; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #b8860b, #daa520); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; color: #000; }
+        .logo-text h1 { font-size: 22px; color: #b8860b; letter-spacing: 2px; }
+        .logo-text p { font-size: 12px; color: #888; letter-spacing: 1px; }
+        
+        nav a { color: #ccc; text-decoration: none; margin-left: 25px; font-size: 15px; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: #b8860b; }
+        
+        h2 { font-size: 36px; color: #b8860b; text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 50px; font-size: 17px; }
+        
+        .payment-section { background: rgba(255,255,255,0.02); border: 1px solid rgba(184,134,11,0.15); border-radius: 12px; padding: 40px; margin-bottom: 40px; }
+        .payment-section h3 { color: #daa520; margin-bottom: 25px; font-size: 22px; border-bottom: 1px solid rgba(184,134,11,0.2); padding-bottom: 10px; }
+        .data-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; gap: 8px; }
+        .data-row label { color: #888; font-weight: 500; }
+        .data-row span { color: #fff; font-weight: 500; }
+        
+        .values-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .values-table th, .values-table td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(184,134,11,0.1); }
+        .values-table th { color: #b8860b; background: rgba(184,134,11,0.05); }
+        .values-table td { color: #ccc; }
+        .values-table tr:hover { background: rgba(184,134,11,0.03); }
+        
+        .instructions { background: rgba(0,0,0,0.25); border-left: 3px solid #b8860b; padding: 20px; margin-top: 30px; border-radius: 0 8px 8px 0; }
+        .instructions h4 { color: #b8860b; margin-bottom: 10px; }
+        .instructions p { color: #999; font-size: 15px; line-height: 1.7; }
+        
+        footer { text-align: center; padding: 30px 0; border-top: 1px solid rgba(184, 134, 11, 0.1); color: #666; font-size: 14px; margin-top: 40px; }
+        
+        @media(max-width: 768px) {
+            nav a { margin-left: 10px; font-size: 13px; }
+            h2 { font-size: 26px; }
+            .payment-section { padding: 20px; }
+            .values-table th, .values-table td { padding: 10px 8px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">👑</div>
+                <div class="logo-text">
+                    <h1>IMPÉRIO REAL</h1>
+                    <p>Rede Global de Notícias Verificadas</p>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="parceiros.html">Parceiros</a>
+                <a href="pagamento.html" class="active">Pagamento</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </header>
+
+        <h2>💳 Como Receber & Tabela de Valores</h2>
+        <p class="subtitle">Informações para pagamentos e remuneração por conteúdo publicado</p>
+
+        <section class="payment-section">
+            <h3>🇧🇷 Pagamentos no Brasil</h3>
+            <div class="data-row">
+                <label>Banco:</label>
+                <span>Wise</span>
+            </div>
+            <div class="data-row">
+                <label>Titular:</label>
+                <span>Rogério de Souza Filho</span>
+            </div>
+            <div class="data-row">
+                <label>Chave PIX:</label>
+                <span>realimperio57@gmail.com</span>
+            </div>
+        </section>
+
+        <section class="payment-section">
+            <h3>🌍 Pagamentos Internacionais</h3>
+            <div class="data-row">
+                <label>Plataforma:</label>
+                <span>Wise</span>
+            </div>
+            <div class="data-row">
+                <label>Titular:</label>
+                <span>Rogério de Souza Filho</span>
+            </div>
+            <div class="data-row">
+                <label>E-mail da conta:</label>
+                <span>realimperio57@gmail.com</span>
+            </div>
+        </section>
+
+        <section class="payment-section">
+            <h3>💰 Tabela de Valores</h3>
+            <table class="values-table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Conteúdo</th>
+                        <th>Valor (BRL)</th>
+                        <th>Valor (USD)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Notícia verificada padrão</td>
+                        <td>R$ 500,00</td>
+                        <td>US$ 95,00</td>
+                    </tr>
+                    <tr>
+                        <td>Informação crítica / reportagem especial</td>
+                        <td>R$ 700,00</td>
+                        <td>US$ 135,00</td>
+                    </tr>
+                    <tr>
+                        <td>Conteúdo de atualização periódica</td>
+                        <td>R$ 350,00</td>
+                        <td>US$ 65,00</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="instructions">
+                <h4>📋 Instruções</h4>
+                <p>Após realizar o pagamento, envie o comprovante para <strong>realimperio57@gmail.com</strong> com o assunto: <em>"Pagamento — [Nome do Veículo] — [Data]"</em>. A confirmação será enviada em até 24 horas úteis.<br><br>Valores podem ser ajustados conforme contrato de parceria firmado entre as partes.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Império Real — Rede Global de Notícias Verificadas. Todos os direitos reservados.</p>
+            <p>Contato: realimperio57@gmail.com | +55 (43) 98801-5392</p>
+        </footer>
+    </div>
+</body>
+</html>
