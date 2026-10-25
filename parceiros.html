@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parceiros | IMPÉRIO REAL</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #0a0a12 0%, #1a1a2e 50%, #16213e 100%); min-height: 100vh; color: #fff; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        header { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(184, 134, 11, 0.2); margin-bottom: 50px; flex-wrap: wrap; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 50px; height: 50px; background: linear-gradient(135deg, #b8860b, #daa520); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; color: #000; }
+        .logo-text h1 { font-size: 22px; color: #b8860b; letter-spacing: 2px; }
+        .logo-text p { font-size: 12px; color: #888; letter-spacing: 1px; }
+        
+        nav a { color: #ccc; text-decoration: none; margin-left: 25px; font-size: 15px; transition: color 0.3s; }
+        nav a:hover, nav a.active { color: #b8860b; }
+        .btn { padding: 10px 25px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .btn-gold { background: linear-gradient(135deg, #b8860b, #daa520); color: #000; border: none; }
+        
+        h2 { font-size: 36px; color: #b8860b; text-align: center; margin-bottom: 40px; }
+        .intro { text-align: center; color: #aaa; max-width: 700px; margin: 0 auto 50px; font-size: 18px; line-height: 1.6; }
+        
+        .benefits { margin-bottom: 60px; }
+        .benefit-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(184,134,11,0.15); border-radius: 10px; padding: 25px; margin-bottom: 20px; }
+        .benefit-item h3 { color: #daa520; margin-bottom: 10px; font-size: 18px; }
+        .benefit-item p { color: #999; line-height: 1.6; }
+        
+        .how-it-works { background: rgba(184,134,11,0.03); border: 1px solid rgba(184,134,11,0.15); border-radius: 12px; padding: 40px; margin-bottom: 60px; }
+        .how-it-works h3 { color: #b8860b; text-align: center; margin-bottom: 30px; font-size: 24px; }
+        .steps { display: flex; flex-direction: column; gap: 20px; }
+        .step { display: flex; gap: 20px; align-items: flex-start; }
+        .step-number { width: 40px; height: 40px; background: #b8860b; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; flex-shrink: 0; }
+        .step-content h4 { color: #fff; margin-bottom: 5px; }
+        .step-content p { color: #888; }
+        
+        .cta-box { background: linear-gradient(135deg, rgba(184,134,11,0.1), rgba(218,165,32,0.05)); border: 1px solid #b8860b; border-radius: 12px; padding: 40px; text-align: center; margin-bottom: 60px; }
+        .cta-box h3 { color: #b8860b; margin-bottom: 15px; font-size: 24px; }
+        .cta-box p { color: #aaa; margin-bottom: 25px; }
+        
+        footer { text-align: center; padding: 30px 0; border-top: 1px solid rgba(184, 134, 11, 0.1); color: #666; font-size: 14px; }
+        
+        @media(max-width: 768px) {
+            nav a { margin-left: 10px; font-size: 13px; }
+            h2 { font-size: 26px; }
+            .how-it-works, .cta-box { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">👑</div>
+                <div class="logo-text">
+                    <h1>IMPÉRIO REAL</h1>
+                    <p>Rede Global de Notícias Verificadas</p>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html">Início</a>
+                <a href="parceiros.html" class="active">Parceiros</a>
+                <a href="pagamento.html">Pagamento</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </header>
+
+        <h2>🤝 Seja um Veículo Parceiro</h2>
+        <p class="intro">Junte-se a uma rede global de comunicação comprometida com a verdade, a credibilidade e a informação verificada.</p>
+
+        <section class="benefits">
+            <div class="benefit-item">
+                <h3>✅ Selo de Verificação Império Real</h3>
+                <p>Exiba em seu veículo o reconhecimento de que seu conteúdo passa pelos mais rigorosos critérios de verificação e qualidade.</p>
+            </div>
+            <div class="benefit-item">
+                <h3>✅ Remuneração Garantida por Conteúdo</h3>
+                <p>Seus materiais validados geram retorno financeiro. Valores definidos de forma transparente por notícia publicada.</p>
+            </div>
+            <div class="benefit-item">
+                <h3>✅ Proteção contra Desinformação</h3>
+                <p>Nossa Inteligência Artificial valida cada conteúdo antes da publicação, protegendo sua audiência e sua reputação.</p>
+            </div>
+            <div class="benefit-item">
+                <h3>✅ Exposição Internacional</h3>
+                <p>Seu veículo passa a fazer parte de uma rede global, ampliando seu alcance e credibilidade além das fronteiras.</p>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h3>📋 Como Funciona</h3>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Envie sua Proposta</h4>
+                        <p>Entre em contato conosco apresentando seu veículo de comunicação.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Análise e Contrato</h4>
+                        <p>Avaliamos sua solicitação e enviamos o contrato de parceria.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Validação do Conteúdo</h4>
+                        <p>Seus materiais passam pelo sistema de verificação da plataforma.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Publicação e Remuneração</h4>
+                        <p>Conteúdo aprovado é publicado e você recebe conforme os valores estabelecidos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-box">
+            <h3>Pronto para fazer parte?</h3>
+            <p>Entre em contato e vamos conversar sobre uma parceria de sucesso.</p>
+            <a href="contato.html" class="btn btn-gold">Enviar Proposta</a>
+        </section>
+
+        <footer>
+            <p>© 2025 Império Real — Rede Global de Notícias Verificadas. Todos os direitos reservados.</p>
+            <p>Contato: realimperio57@gmail.com | +55 (43) 98801-5392</p>
+        </footer>
+    </div>
+</body>
+</html>
